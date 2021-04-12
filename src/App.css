@@ -1,0 +1,691 @@
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~TABLE OF CONTENTS~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~1. VARIABILE
+~~~~~~~~~2. GENERALE
+~~~~~~~~~3. NAVBAR
+~~~~~~~~~4. IMAGINI
+~~~~~~~~~5. BUTOANE HOME PAGE. STILURI BUTOANE
+~~~~~~~~~6. LIST BUTTONS / WHEEL - PAGE
+~~~~~~~~~7. MENU BUTTONS (SPIN/OPTIONS/SAVE/BACK)
+~~~~~~~~~8. MULTIPLE SPINS INFO
+~~~~~~~~~9. OPTIONS
+~~~~~~~~~10. LIST-PAGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+
+
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~1. VARIABILE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+:root{
+    --crem: #f7edda;
+    --orange: #faa403;
+    --blue: #12b3f6;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~2. GENERALE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+html,body,*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+body{
+    background: var(--crem);
+}
+
+button:focus,
+button:active{
+    outline: none;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~3. NAVBAR
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.navbar{
+    width: 100%;
+    height: 20vw;
+    background: var(--crem);
+    text-align: center;
+    border-bottom: 1vw solid black;
+    /*TEMP*/
+    height: 10vw;
+}
+.navbar img{
+    height: inherit;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~4. IMAGINI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.image-container{
+    margin-top: 5vw;
+    height: 80vw;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    -webkit-transition: 350ms;
+    /*TEMP*/
+    /*height: 40vw;*/
+}
+
+.image-container img{
+    position: relative;
+    height: inherit;
+    -webkit-transition: 200ms;
+}
+.image-container img:nth-of-type(1),.image-container img:nth-of-type(2){
+    position: absolute;
+}
+
+@keyframes rotateWheel{
+    0%{transform:rotate(0deg)}
+    100%{transform:rotate(1440deg)}
+}
+
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~5. BUTOANE HOME PAGE. STILURI BUTOANE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.btnLine{
+    margin-top: 25vw;
+    display: flex;
+    justify-content: space-evenly;
+    /*TEMP*/
+    /*display: none;*/
+}
+.btnLine button{
+    width: 40vw;
+    padding-top: 12vw;
+    padding-bottom: 12vw;
+    font-size: 5vw;
+    font-weight: 900;
+    border-radius: 5vw;
+    border: none;
+    transition: 500ms;
+}
+.btnLine button:active{
+    overlay: none;
+    box-shadow: 0 0 10px var(--blue);
+}
+
+.btnLine button:focus{
+    outline: 1vw solid var(--blue);
+}
+
+
+.style1{
+    color: var(--blue);
+    background: var(--orange);
+}
+
+.style2{
+    color: var(--orange);
+    background: var(--blue);
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~6. LIST BUTTONS / WHEEL PAGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.wheel-page{
+    opacity: 0;
+    display: none;
+    transition: 300ms;
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    -moz-transition: 300ms;
+}
+
+.input-text-container{
+    margin-top: 10vw;
+    width: 95%;
+    min-height: 55vw;
+    margin-bottom: 5vw;
+    border: 1px solid transparent;
+    flex-direction: column;
+}
+.objectText{
+    height: 10vw;
+    width: 60%;
+
+    background: var(--blue);
+    color: var(--orange);
+
+    border: none;
+    margin: auto;
+    border-radius: 1.5vw;
+
+    font-size: 3.8vw;
+    font-weight: 900;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.objectLine {
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    transition: 300ms;
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    -moz-transition: 300ms;
+    animation: 1s objects-appear forwards;
+}
+@keyframes objects-appear{
+    0%{margin-top: -10vw;}
+    100%{margin-top: 5vw;}
+}
+@keyframes object-disappear{
+    0%{margin-top: 5vw;transform:scale(1);}
+    100%{margin-top: -12vw;transform:scale(0);}
+}
+
+
+/*.objectLine:nth-of-type(3) >div{*/
+/*    animation: 1s blink infinite;*/
+/*}*/
+
+@keyframes blink{
+    0%{background: var(--blue);
+        /*box-shadow: -2vw -2vw 2vw var(--orange);*/
+    }
+    /*25%{box-shadow: 2vw -2vw 2vw var(--orange);}*/
+    50%{background: white;
+        /*box-shadow: 2vw 2vw 2vw var(--orange);*/
+    }
+    /*75%{box-shadow: -2vw 2vw 2vw var(--orange);}*/
+    100%{background: var(--blue);
+        /*box-shadow: -2vw -2vw 2vw var(--orange);*/
+    }
+}
+
+.objectLine button{
+    transform: scale(0.8);
+    width: 10vw;
+    border: 0;
+    transition: 600ms;
+}
+.objectLine button:nth-of-type(1){
+    background:url("./media/minus-btn.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.objectLine button:nth-of-type(2){
+    filter: grayscale(100%);
+    opacity: .4;
+    background:url("./media/star-btn.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#save-list-input{
+    z-index: 100;
+    position: absolute;
+
+    top: 30vw;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+
+    transform: translateX(-50%);
+    height: 60vw;
+
+    text-align: center;
+
+    padding: 1vw;
+    width: 80%;
+
+    box-shadow: 0 0 2vw 2vw var(--blue);
+
+    background: var(--orange);
+
+    color: white;
+
+    display: none;
+    opacity: 0;
+
+    transition: 300ms;
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    -moz-transition: 300ms;
+}
+
+#save-list-input input{
+    margin-top: 5vw;
+    height: 5vw;
+    border-radius: 5vw;
+    border: none;
+    text-align: center;
+
+    margin-bottom: 5vw;
+
+    transition: 300ms;
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    -moz-transition: 300ms;
+}
+#save-list-input input:focus{
+    outline: none;
+    box-shadow: 0 0 1vw 1vw var(--blue);
+}
+#save-list-input button{
+    display: block;
+    padding: 1vw;
+    background: var(--blue);
+    color: white;
+
+    padding: 3vw;
+
+    font-weight: 600;
+
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+    border: none;
+    border-radius: 5vw;
+    margin-bottom: 5vw;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~7. MENU BUTTONS (SPIN/OPTIONS/SAVE/BACK)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.menu-line{
+    width: 100%;
+    height: 10vw;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2vw;
+}
+#spin{
+    height: 15vw;
+    transition: 300ms;
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    -moz-transition: 300ms;
+}
+#spin button{
+    width: 30%;
+    font-size: 6vw;
+}
+#plus{
+    margin-top: 10vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: 300ms;
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    -moz-transition: 300ms;
+}
+#plus input{
+    height: 12vw;
+    width: 60%;
+
+    background: var(--blue);
+    color: var(--orange);
+    border: .5vw solid var(--orange);
+    border-radius: 1.5vw;
+
+    text-align: center;
+    font-weight: 900;
+    z-index: 5;
+}
+#plus button{
+    border-radius: 100%;
+    border: none;
+    width: 13vw;
+    height: 13vw;
+    font-size: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0) translateX(-200%);
+    z-index: 4;
+    transition: 500ms;
+    -webkit-transition: 500ms;
+    -o-transition: 500ms;
+    -moz-transition: 500ms;
+}
+.menu-line button{
+    width: 20%;
+    border: 1vw solid var(--blue);
+    color: var(--blue);
+    background:var(--orange);
+    border-radius: 2vw;
+    font-weight: bolder;
+}
+.switch::after {
+    transform: translateY(-50%) translateX(-100%);
+}
+#optionSwitch{
+    background : rgb(52, 205, 52);
+}
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~8. MULTIPLE SPINS INFO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+#multiple-spins{
+    width: 80vw;
+    margin-left: 10vw;
+    position: fixed;
+    top: 20vh;
+    border: 1vw solid white;
+    background: var(--orange);
+    border-radius: 4vw;
+
+    opacity: 0;
+    display: none;
+
+    transition: 500ms;
+    -webkit-transition: 500ms;
+    -o-transition: 500ms;
+    -moz-transition: 500ms;
+}
+#multiple-spins-close{
+    width: 10vw;
+    height: 10vw;
+    cursor: pointer;
+    float: right;
+
+    background: transparent;
+    border: 1vw solid white;
+    border-top: none;
+    border-right: none;
+
+    font-size: 8vw;
+    color: white;
+}
+
+.multiple-spins-item{
+    height: 6vw;
+    width: 80%;
+
+    margin-left: 9%;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+
+    padding: 1vw;
+
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+}
+.multiple-spins-item:nth-of-type(1){
+    margin-top: 10vw;
+}
+
+hr{
+    margin-left: 7vw;
+    margin-right: 7vw;
+    border: none;
+    border: .1vw solid lightgrey;
+}
+
+.result-diagram{
+    height: 5.5vw;
+    width: 0vw;
+    background: linear-gradient(to right, var(--crem),var(--blue));
+    transition: 700ms;
+    -webkit-transition: 700ms;
+    -o-transition: 700ms;
+    -moz-transition: 700ms;
+}
+.result-diagram span{
+    float: right;
+    font-weight: bolder;
+    color: white;
+    transform: translateX(150%);
+}
+
+#multiple-spins p{
+    width: 20%;
+    color: white;
+}
+
+#multiple-spins h1,#multiple-spins h2{
+    margin-top: 2vw;
+    max-width: 70%;
+    margin-left: 15%;
+    text-align: center;
+    color: #eeee37;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~9. OPTIONS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+#options{
+    width: 80vw;
+    min-height: 10vw;
+    margin-left: 10vw;
+    position: fixed;
+    top: 20vh;
+    border: 1vw solid white;
+    background: var(--orange);
+    border-radius: 4vw;
+
+    z-index: 100;
+
+    opacity: 0;
+    display: none;
+
+    transition: 500ms;
+    -webkit-transition: 500ms;
+    -o-transition: 500ms;
+    -moz-transition: 500ms;
+}
+
+.option >*{
+    display: inline-block;
+}
+.option{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 20vw;
+}
+.option p{
+    white-space: nowrap;
+    font-size: 4vw;
+    color: white;
+}
+
+.switch{
+    --switchHeight: 8vw;
+
+    height: var(--switchHeight);
+    width: 14vw;
+
+    border-radius: 10vw;
+    border: none;
+    background: #b7b5b5;
+
+    display: inline-block;
+}
+
+.switch::after{
+    content: "";
+
+    position: absolute;
+
+    height: calc(var(--switchHeight) - 1.5vw);
+    width: calc(var(--switchHeight) - 1.5vw);
+
+    transform: translateY(-50%);
+    border-radius: 100%;
+    background: white;
+
+    transition: 300ms;
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    -moz-transition: 300ms;
+}
+
+.switch:active,.switch:visited{
+    background: #34cd34;
+}
+
+.switch:active::after{
+    transform: translateX(-100%) translateY(-50%);
+}
+
+.option span{
+    color: white;
+    font-size: 4vw;
+
+}
+
+#number-of-spins{
+    padding: 1vw;
+    border: .5vw solid white;
+    padding-left: 5vw;
+    padding-right: 5vw;
+
+}
+
+#increment-options{
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+    height: 10vw;
+}
+#increment-options button{
+
+    height: 7vw;
+    width: 7vw;
+
+    color: white;
+    background: #b7b5b5;
+    border: .5vw solid white;
+
+    font-size: 7vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10vw;
+}
+
+#options> button{
+    height: 8vw;
+
+    background: #b7b5b5;
+    font-size: 5vw;
+    color: white;
+
+    border: .4vw solid white;
+    border-radius: 10vw;
+
+    margin-top: 7vw;
+    margin-bottom: 7vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 2vw;
+
+    display:flex;
+    align-items: center;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~10. LIST-PAGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.lists-page{
+    width: 100%;
+    height: 10vw;
+    text-align: center;
+
+    margin-top: 2vw;
+
+    display: none;
+    opacity: 0;
+
+    transition: 300ms;
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    -moz-transition: 300ms;
+}
+
+.lists-page h2{
+    font-size: 2rem;
+    margin-bottom: 5vw;
+}
+
+.lists-page p{
+    font-size: .75rem;
+}
+
+.list-obj{
+    width: 60%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: block;
+
+    padding: 2vw;
+    background: var(--orange);
+
+    border-radius: 5vw;
+
+    color: var(--blue);
+
+    font-weight: 900;
+
+    font-size: 1.5rem;
+
+    margin-bottom: 5vw;
+}
+
+.lists-page >button{
+    width: 40%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: block;
+
+    padding: 2vw;
+    background: var(--orange);
+    margin-top: 3vw;
+
+    border-radius: 5vw;
+
+    color: var(--blue);
+
+    font-weight: 600;
+    font-size: 1rem;
+
+    margin-bottom: 5vw;
+    border: none;
+}
+
