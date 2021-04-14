@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Choicezz/static/css/main.6cadcd14.chunk.css",
-    "main.js": "/Choicezz/static/js/main.008795a5.chunk.js",
-    "main.js.map": "/Choicezz/static/js/main.008795a5.chunk.js.map",
-    "runtime-main.js": "/Choicezz/static/js/runtime-main.b1ae10ed.js",
-    "runtime-main.js.map": "/Choicezz/static/js/runtime-main.b1ae10ed.js.map",
-    "static/js/2.99da560a.chunk.js": "/Choicezz/static/js/2.99da560a.chunk.js",
-    "static/js/2.99da560a.chunk.js.map": "/Choicezz/static/js/2.99da560a.chunk.js.map",
-    "static/js/3.d5e1ee4f.chunk.js": "/Choicezz/static/js/3.d5e1ee4f.chunk.js",
-    "static/js/3.d5e1ee4f.chunk.js.map": "/Choicezz/static/js/3.d5e1ee4f.chunk.js.map",
+    "main.css": "/Choicezz/static/css/main.877fb822.chunk.css",
+    "main.js": "/Choicezz/static/js/main.772b20da.chunk.js",
+    "main.js.map": "/Choicezz/static/js/main.772b20da.chunk.js.map",
+    "runtime-main.js": "/Choicezz/static/js/runtime-main.db25f916.js",
+    "runtime-main.js.map": "/Choicezz/static/js/runtime-main.db25f916.js.map",
+    "static/js/2.e1fa7dbc.chunk.js": "/Choicezz/static/js/2.e1fa7dbc.chunk.js",
+    "static/js/2.e1fa7dbc.chunk.js.map": "/Choicezz/static/js/2.e1fa7dbc.chunk.js.map",
+    "static/js/3.52eb6a7a.chunk.js": "/Choicezz/static/js/3.52eb6a7a.chunk.js",
+    "static/js/3.52eb6a7a.chunk.js.map": "/Choicezz/static/js/3.52eb6a7a.chunk.js.map",
     "index.html": "/Choicezz/index.html",
-    "static/css/main.6cadcd14.chunk.css.map": "/Choicezz/static/css/main.6cadcd14.chunk.css.map",
-    "static/js/2.99da560a.chunk.js.LICENSE.txt": "/Choicezz/static/js/2.99da560a.chunk.js.LICENSE.txt",
+    "static/css/main.877fb822.chunk.css.map": "/Choicezz/static/css/main.877fb822.chunk.css.map",
+    "static/js/2.e1fa7dbc.chunk.js.LICENSE.txt": "/Choicezz/static/js/2.e1fa7dbc.chunk.js.LICENSE.txt",
     "static/media/Choicezz.c1c95765.png": "/Choicezz/static/media/Choicezz.c1c95765.png",
     "static/media/wheel-body.55e8da66.png": "/Choicezz/static/media/wheel-body.55e8da66.png",
     "static/media/wheel-colors.310bcf87.png": "/Choicezz/static/media/wheel-colors.310bcf87.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.b1ae10ed.js",
-    "static/js/2.99da560a.chunk.js",
-    "static/css/main.6cadcd14.chunk.css",
-    "static/js/main.008795a5.chunk.js"
+    "static/js/runtime-main.db25f916.js",
+    "static/js/2.e1fa7dbc.chunk.js",
+    "static/css/main.877fb822.chunk.css",
+    "static/js/main.772b20da.chunk.js"
   ]
 }
