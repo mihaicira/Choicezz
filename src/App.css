@@ -130,7 +130,7 @@ button:active{
 
 
 .style1{
-    color: var(--blue);
+    color: white;
     background: var(--orange);
 }
 
@@ -381,7 +381,7 @@ button:active{
 .menu-line button{
     width: 20%;
     border: 1vw solid var(--blue);
-    color: var(--blue);
+    color: white;
     background:var(--orange);
     border-radius: 2vw;
     font-weight: bolder;
@@ -670,7 +670,7 @@ hr{
 
     border-radius: 5vw;
 
-    color: var(--blue);
+    color: white;
 
     font-weight: 900;
 
