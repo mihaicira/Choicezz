@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Choicezz/static/css/main.df431f20.chunk.css",
+    "main.css": "/Choicezz/static/css/main.471808e9.chunk.css",
     "main.js": "/Choicezz/static/js/main.fcb1d991.chunk.js",
     "main.js.map": "/Choicezz/static/js/main.fcb1d991.chunk.js.map",
     "runtime-main.js": "/Choicezz/static/js/runtime-main.db25f916.js",
@@ -10,7 +10,7 @@
     "static/js/3.52eb6a7a.chunk.js": "/Choicezz/static/js/3.52eb6a7a.chunk.js",
     "static/js/3.52eb6a7a.chunk.js.map": "/Choicezz/static/js/3.52eb6a7a.chunk.js.map",
     "index.html": "/Choicezz/index.html",
-    "static/css/main.df431f20.chunk.css.map": "/Choicezz/static/css/main.df431f20.chunk.css.map",
+    "static/css/main.471808e9.chunk.css.map": "/Choicezz/static/css/main.471808e9.chunk.css.map",
     "static/js/2.e1fa7dbc.chunk.js.LICENSE.txt": "/Choicezz/static/js/2.e1fa7dbc.chunk.js.LICENSE.txt",
     "static/media/Choicezz.c1c95765.png": "/Choicezz/static/media/Choicezz.c1c95765.png",
     "static/media/wheel-body.55e8da66.png": "/Choicezz/static/media/wheel-body.55e8da66.png",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.db25f916.js",
     "static/js/2.e1fa7dbc.chunk.js",
-    "static/css/main.df431f20.chunk.css",
+    "static/css/main.471808e9.chunk.css",
     "static/js/main.fcb1d991.chunk.js"
   ]
 }
