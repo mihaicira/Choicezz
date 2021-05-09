@@ -20,7 +20,6 @@ function newList(lists = null){
 
 function displayLists(lists){
     collapseHomeButtons()
-    console.log("displaying lists")
     document.getElementsByClassName("home-btns")[0].style.opacity = "0";
     document.getElementsByClassName("wheel-page")[0].style.opacity = "0";
     document.getElementsByClassName("lists-page")[0].style.display = "block";

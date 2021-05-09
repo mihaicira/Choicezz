@@ -163,11 +163,15 @@ button:active{
     flex-direction: column;
 }
 .objectText{
+
+
+
     height: 10vw;
     width: 60%;
 
     background: var(--blue);
-    color: var(--orange);
+    /*color: var(--orange);*/
+    color: white;
 
     border: none;
     margin: auto;
@@ -350,7 +354,7 @@ button:active{
     width: 60%;
 
     background: var(--blue);
-    color: var(--orange);
+    color: white;
     border: .5vw solid var(--orange);
     border-radius: 1.5vw;
 
@@ -470,9 +474,16 @@ hr{
 #multiple-spins p{
     width: 20%;
     color: white;
+
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
 }
 
 #multiple-spins h1,#multiple-spins h2{
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
     margin-top: 2vw;
     max-width: 70%;
     margin-left: 15%;

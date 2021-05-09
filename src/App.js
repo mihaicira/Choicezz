@@ -148,7 +148,7 @@ class App extends Component{
                 array.push(elem)
         })
 
-        console.log("Spin array: ",array)
+        // console.log("Spin array: ",array)
 
         //blochez butonul de Spin
         this.isSpinActive = false;
