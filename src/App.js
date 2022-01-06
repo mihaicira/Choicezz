@@ -16,6 +16,7 @@ class App extends Component{
             ],
             spinNumber: 1,
             withAnimation: true,
+            mobileDevice: false,
             Lists:[
                 ["Food",
                     {id:"default-food1",text:"Burger",fav:false},
@@ -98,7 +99,6 @@ class App extends Component{
             document.getElementById("save-list-input").style.display = "none";
         },300)
     }
-
 
     newInput = () =>{
         const value = document.querySelector("#plus input").value.trim();
@@ -236,129 +236,152 @@ class App extends Component{
         },300)
     }
 
+    componentDidMount() {
+        if(window.innerWidth <= 800){
+            const state = this.state
+            state.mobileDevice = true;
+            this.setState(state)
+        }
+        else{
+            alert("This application is currently available only for mobile devices. Resize your window (F12) to continue")
+        }
+    }
+
     render(){
         return <>
-            <Navbar/>
-            <Image/>
-            <div className="home-btns">
-            <BtnLine
-                st={
-                    <button className="style1" onClick={newList} id="home-button-new-list">New list</button>
-                }
-                nd={
-                    <button className="style1" onClick={()=>{displayLists(this.state.Lists)}} id="home-button-load-list">Load list</button>
-                }
-            />
-            </div>
-
-            <div className="wheel-page">
-                <div className="input-text-container">
-                    {
-                        this.state.choices.map((value,index) =>{
-                            return(<div className="objectLine" key={value.id} id={value.id}>
-                                <button onClick={()=>{this.removeTap(index,value.id)}}></button>
-                                <div className="objectText">{value.text}</div>
-                                <button onClick={()=>{this.favTap(index)}}></button>
-                            </div>)
-                        })
-                    }
-                    <div className="menu-line" id="plus">
-                        <input placeholder="write new object here" onChange={(e) => {this.handleChange(e)}} onKeyPress={this.handleKeyPress}/>
-                        <button onClick={this.newInput} >+</button>
+            {
+                !this.state.mobileDevice &&
+                    <div id="onlyMobile">
+                        <p>This application is currently available only for mobile devices.</p>
                     </div>
 
-                </div>
-
-                <div className="menu-line" id="spin">
-                        <button onClick={()=>{this.spin({withAnimation: this.state.withAnimation,
-                            spinNumber: this.state.spinNumber
-                        })}}>Spin</button>
+            }
+            {
+                this.state.mobileDevice &&
+                <div id="appContainer">
+                    <Navbar/>
+                    <Image/>
+                    <div className="home-btns">
+                        <BtnLine
+                            st={
+                                <button className="style1" onClick={newList} id="home-button-new-list">New list</button>
+                            }
+                            nd={
+                                <button className="style1" onClick={()=>{displayLists(this.state.Lists)}} id="home-button-load-list">Load list</button>
+                            }
+                        />
                     </div>
 
-                <div className="menu-line">
-                        <button onClick={()=>{toggleOptionMenu(this.state.withAnimation)}}>Options</button>
-                        <button onClick={()=>{displayLists(this.state.Lists)}}>Load list</button>
+                    <div className="wheel-page">
+                        <div className="input-text-container">
+                            {
+                                this.state.choices.map((value,index) =>{
+                                    return(<div className="objectLine" key={value.id} id={value.id}>
+                                        <button onClick={()=>{this.removeTap(index,value.id)}}></button>
+                                        <div className="objectText">{value.text}</div>
+                                        <button onClick={()=>{this.favTap(index)}}></button>
+                                    </div>)
+                                })
+                            }
+                            <div className="menu-line" id="plus">
+                                <input placeholder="write new object here" onChange={(e) => {this.handleChange(e)}} onKeyPress={this.handleKeyPress}/>
+                                <button onClick={this.newInput} >+</button>
+                            </div>
+
+                        </div>
+
+                        <div className="menu-line" id="spin">
+                            <button onClick={()=>{this.spin({withAnimation: this.state.withAnimation,
+                                spinNumber: this.state.spinNumber
+                            })}}>Spin</button>
+                        </div>
+
+                        <div className="menu-line">
+                            <button onClick={()=>{toggleOptionMenu(this.state.withAnimation)}}>Options</button>
+                            <button onClick={()=>{displayLists(this.state.Lists)}}>Load list</button>
+                        </div>
+
+                        <div className="menu-line">
+                            <button onClick={this.openSaveListInput}>Save list</button>
+                        </div>
+
+                        <div id="multiple-spins">
+                            <button id="multiple-spins-close">x</button>
+                        </div>
+
+                        <div id="options">
+                            <div className="option">
+                                <p>Wheel animation</p>
+                                <button className="switch" id="optionSwitch" onClick={()=>{
+                                    this.state.withAnimation = toggleOptionSwitch(this.state.withAnimation)
+                                }}></button>
+                            </div>
+                            <hr/>
+                            <div className="option">
+                                <span>Simulate</span>
+                                <p id="number-of-spins">{this.state.spinNumber}</p>
+                                <span>spins</span>
+                            </div>
+
+                            <div className="option" id="increment-options">
+                                <button onClick={()=>{
+                                    if(this.state.spinNumber <= 100)
+                                        this.setState({spinNumber:this.state.spinNumber+1})
+                                }}>+</button>
+                                <button onClick={()=>{
+                                    if(this.state.spinNumber > 1)
+                                        this.setState({spinNumber:this.state.spinNumber-1})
+                                }}>-</button>
+                            </div>
+                            <hr/>
+                            <button onClick={toggleOptionMenu}>Close</button>
+
+                        </div>
+
+                        <div id="save-list-input">
+                            <h2>Write your list's name below</h2>
+                            <input/>
+                            <button onClick={this.sendList}>Save</button>
+                            <button onClick={this.closeSaveListInputMenu}>Close</button>
+                        </div>
                     </div>
 
-                <div className="menu-line">
-                        <button onClick={this.openSaveListInput}>Save list</button>
-                    </div>
+                    <div className="lists-page">
+                        <p>Press on the list to load it</p>
+                        <h2>Default lists</h2>
+                        <div className="list-obj" onClick={()=>{
+                            this.setState({choices:[]})
+                            newList()}}>New list</div>
+                        <div className="list-obj" onClick={()=>{
+                            const [,...tail] = this.state.Lists[0]
+                            this.setState({choices:tail})
+                            newList()}}>Food</div>
+                        <div className="list-obj" onClick={()=>{
+                            const [,...tail] = this.state.Lists[1]
+                            this.setState({choices:tail})
+                            newList()}}>Movies</div>
 
-                <div id="multiple-spins">
-                    <button id="multiple-spins-close">x</button>
-                </div>
-
-                <div id="options">
-                    <div className="option">
-                        <p>Wheel animation</p>
-                        <button className="switch" id="optionSwitch" onClick={()=>{
-                            this.state.withAnimation = toggleOptionSwitch(this.state.withAnimation)
-                        }}></button>
-                    </div>
-                    <hr/>
-                    <div className="option">
-                        <span>Simulate</span>
-                        <p id="number-of-spins">{this.state.spinNumber}</p>
-                        <span>spins</span>
-                    </div>
-
-                    <div className="option" id="increment-options">
-                        <button onClick={()=>{
-                            if(this.state.spinNumber <= 100)
-                                this.setState({spinNumber:this.state.spinNumber+1})
-                        }}>+</button>
-                        <button onClick={()=>{
-                            if(this.state.spinNumber > 1)
-                                this.setState({spinNumber:this.state.spinNumber-1})
-                        }}>-</button>
-                    </div>
-                    <hr/>
-                    <button onClick={toggleOptionMenu}>Close</button>
-
-                </div>
-
-                <div id="save-list-input">
-                    <h2>Write your list's name below</h2>
-                    <input/>
-                    <button onClick={this.sendList}>Save</button>
-                    <button onClick={this.closeSaveListInputMenu}>Close</button>
-                </div>
-            </div>
-
-            <div className="lists-page">
-                <p>Press on the list to load it</p>
-                <h2>Default lists</h2>
-                <div className="list-obj" onClick={()=>{
-                this.setState({choices:[]})
-                newList()}}>New list</div>
-                <div className="list-obj" onClick={()=>{
-                    const [,...tail] = this.state.Lists[0]
-                    this.setState({choices:tail})
-                    newList()}}>Food</div>
-                <div className="list-obj" onClick={()=>{
-                    const [,...tail] = this.state.Lists[1]
-                    this.setState({choices:tail})
-                    newList()}}>Movies</div>
-
-                <h2>Your own lists</h2>
-                {
-                    localStorage.getItem("LISTS") !== null &&
-                    JSON.parse(localStorage.getItem("LISTS")).map((key,index)=>{
-                        if(index >= 2){
-                        return(<div className="list-obj" id={"unique-personal-list-"+index} onClick={()=>{
-                        const [,...tail] = key
-                        this.setState({choices:tail})
-                        newList()}}>{key[0]}</div>)
+                        <h2>Your own lists</h2>
+                        {
+                            localStorage.getItem("LISTS") !== null &&
+                            JSON.parse(localStorage.getItem("LISTS")).map((key,index)=>{
+                                if(index >= 2){
+                                    return(<div className="list-obj" id={"unique-personal-list-"+index} onClick={()=>{
+                                        const [,...tail] = key
+                                        this.setState({choices:tail})
+                                        newList()}}>{key[0]}</div>)
+                                }
+                            })
                         }
-                   })
-                }
-                {
-                    localStorage.getItem("LISTS") === null &&
-                    <p>You don't have any saved lists...</p>
-                }
+                        {
+                            localStorage.getItem("LISTS") === null &&
+                            <p>You don't have any saved lists...</p>
+                        }
 
-                <button onClick={()=>{newList(this.state.choices)}}>Wheel Page</button>
-            </div>
+                        <button onClick={()=>{newList(this.state.choices)}}>Wheel Page</button>
+                    </div>
+                </div>
+            }
 
         </>
     }

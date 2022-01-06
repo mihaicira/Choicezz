@@ -32,6 +32,9 @@
 ~~~~~~~~~2. GENERALE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
+#appContainer{
+}
+
 html,body,*{
     margin: 0;
     padding: 0;
