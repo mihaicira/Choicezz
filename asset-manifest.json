@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Choicezz/static/css/main.4f055723.chunk.css",
-    "main.js": "/Choicezz/static/js/main.db4c078b.chunk.js",
-    "main.js.map": "/Choicezz/static/js/main.db4c078b.chunk.js.map",
+    "main.js": "/Choicezz/static/js/main.43c51e29.chunk.js",
+    "main.js.map": "/Choicezz/static/js/main.43c51e29.chunk.js.map",
     "runtime-main.js": "/Choicezz/static/js/runtime-main.db25f916.js",
     "runtime-main.js.map": "/Choicezz/static/js/runtime-main.db25f916.js.map",
     "static/js/2.e1fa7dbc.chunk.js": "/Choicezz/static/js/2.e1fa7dbc.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.db25f916.js",
     "static/js/2.e1fa7dbc.chunk.js",
     "static/css/main.4f055723.chunk.css",
-    "static/js/main.db4c078b.chunk.js"
+    "static/js/main.43c51e29.chunk.js"
   ]
 }
